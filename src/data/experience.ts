@@ -22,9 +22,9 @@ export const experience: ExperienceData = {
       period: '2022 – 2025',
       bullets: [
         'Led end-to-end planning and execution of an enterprise CMS re-platforming program for global marketing sites serving 30–40M monthly visits.',
-        'Owned program roadmap, sprint planning, and release coordination for a 4-engineer team across multiple platform dependencies.',
+        'Co-owned program roadmap, sprint planning, and release coordination for a 4-engineer team across multiple platform dependencies.',
         'Drove stakeholder alignment across engineering, product, design, and marketing — on-time launches, zero critical delays.',
-        'Established AI-assisted development practices and engineering tooling standards adopted across multiple teams.',
+        'Established AI-assisted development practices and engineering tooling standards.',
       ],
     },
     {
