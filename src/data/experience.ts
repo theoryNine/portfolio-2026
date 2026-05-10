@@ -29,7 +29,7 @@ export const experience: ExperienceData = {
     },
     {
       company: 'Ansira',
-      role: 'Team Lead',
+      role: 'Front-End Team Lead',
       period: '2017 – 2021',
       bullets: [
         'Led cross-functional delivery across 3–5 concurrent client platforms, coordinating front-end, back-end, QA, and design.',
