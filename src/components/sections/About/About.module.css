@@ -1,0 +1,145 @@
+.section {
+  padding-block: var(--section-pad-y);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* ── Photo column ───────────────────────────── */
+
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--color-border);
+}
+
+.photoCaption {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Content column ─────────────────────────── */
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Headline: roman base, italic em */
+.headline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.headline em {
+  font-style: italic;
+}
+
+.shadow {
+  color: var(--color-accent);
+}
+
+.light {
+  color: #e8d8b8;
+}
+
+/* Bio */
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.bioPrimary {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.75;
+}
+
+.bioNote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* Details table */
+
+.details {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailRow {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: var(--space-3);
+  padding-block: 0.875rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.detailRow:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detailLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-top: 0.1em;
+}
+
+.detailValue {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+.detailAccent {
+  color: var(--color-accent);
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .photo {
+    object-position: center 30%
+  }
+}
