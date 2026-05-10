@@ -1,5 +1,5 @@
 import type { HeroData } from '../types'
-import heroImage from '../assets/ansel-light.jpg'
+import heroImage from '../assets/ansel-light.webp'
 
 export const hero: HeroData = {
   availability: 'Available for Hire',

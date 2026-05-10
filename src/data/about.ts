@@ -1,5 +1,5 @@
 import type { AboutData } from '../types'
-import heroImage from '../assets/darker.jpeg'
+import heroImage from '../assets/darker.webp'
 
 export const about: AboutData = {
   sectionNumber: '01',

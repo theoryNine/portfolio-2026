@@ -1,14 +1,14 @@
 import type { WorkData } from '../types'
 
-import starbucks from '../assets/sitegrabs/starbucks_full.png'
-import mazda from '../assets/sitegrabs/Mazda_Desk_SS.png'
-import bny from '../assets/sitegrabs/BNY_Desk.png'
-import spectrum from '../assets/sitegrabs/spectrum_mobile_full.jpg'
-import nyl from '../assets/sitegrabs/nyl_full.jpg'
-import att from '../assets/sitegrabs/att_full.jpg'
-import canon from '../assets/sitegrabs/canon_full.jpg'
-import acu from '../assets/sitegrabs/acu_full.jpg'
-import fresh from '../assets/sitegrabs/fresh_full.jpg'
+import starbucks from '../assets/sitegrabs/starbucks_full.webp'
+import mazda from '../assets/sitegrabs/Mazda_Desk_SS.webp'
+import bny from '../assets/sitegrabs/BNY_Desk.webp'
+import spectrum from '../assets/sitegrabs/spectrum_mobile_full.webp'
+import nyl from '../assets/sitegrabs/nyl_full.webp'
+import att from '../assets/sitegrabs/att_full.webp'
+import canon from '../assets/sitegrabs/canon_full.webp'
+import acu from '../assets/sitegrabs/acu_full.webp'
+import fresh from '../assets/sitegrabs/fresh_full.webp'
 
 export const work: WorkData = {
   sectionNumber: '05',
@@ -19,11 +19,11 @@ export const work: WorkData = {
       number: '001',
       company: 'Starbucks',
       title: 'Enterprise CMS re-platforming for global marketing sites.',
-      tags: ['Next.js', 'Adobe AEM', 'TypeScript', 'Azure'],
+      tags: ['React', 'Adobe AEM', 'TypeScript', 'Azure'],
       image: starbucks,
       href: '#',
       variant: 'featured',
-      role: 'Tech Lead',
+      role: 'Front-End Tech Lead',
       year: '2024',
       scale: '30–40M / mo',
     },
@@ -35,7 +35,7 @@ export const work: WorkData = {
       image: mazda,
       href: '#',
       variant: 'standard',
-      role: 'Front-End Lead',
+      role: 'Front-End Team Lead',
       year: '2021',
     },
     {
@@ -68,7 +68,7 @@ export const work: WorkData = {
       image: nyl,
       href: '#',
       variant: 'small',
-      role: 'Engineer',
+      role: 'Front-End Engineer',
       year: '2019',
     },
     {
@@ -79,7 +79,7 @@ export const work: WorkData = {
       image: att,
       href: '#',
       variant: 'small',
-      role: 'Engineer',
+      role: 'Front-End Engineer',
       year: '2018',
     },
     {
@@ -90,7 +90,7 @@ export const work: WorkData = {
       image: canon,
       href: '#',
       variant: 'small',
-      role: 'Engineer',
+      role: 'Front-End Engineer',
       year: '2018',
     },
     {
@@ -101,7 +101,7 @@ export const work: WorkData = {
       image: acu,
       href: '#',
       variant: 'small',
-      role: 'Engineer',
+      role: 'Front-End Engineer',
       year: '2017',
     },
     {
@@ -112,7 +112,7 @@ export const work: WorkData = {
       image: fresh,
       href: '#',
       variant: 'small',
-      role: 'Engineer',
+      role: 'Front-End Engineer',
       year: '2017',
     },
   ],

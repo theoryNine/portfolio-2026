@@ -6,7 +6,7 @@ export function ProjectCard({ number, company, title, tags, image, href, variant
     return (
       <a href={href} className={`${styles.card} ${styles.cardFeatured}`}>
         <div className={styles.shim} />
-        <img src={image} alt={company} className={styles.featuredImg} />
+        <img src={image} alt={company} className={styles.featuredImg} loading="lazy" />
         <div className={styles.cardBar}>
           <div className={styles.barTop}>
             <span className={styles.featuredLabel}>Featured · Nº {number}</span>
@@ -50,7 +50,7 @@ export function ProjectCard({ number, company, title, tags, image, href, variant
     return (
       <a href={href} className={`${styles.card} ${styles.cardStandard}`}>
         <div className={styles.shim} />
-        <img src={image} alt={company} className={styles.cardImg} />
+        <img src={image} alt={company} className={styles.cardImg} loading="lazy" />
         <div className={styles.cardBar}>
           <div className={styles.barTop}>
             <span className={styles.numberLabel}>Nº {number}</span>

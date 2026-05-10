@@ -15,6 +15,7 @@ export function Hero() {
             src={hero.backgroundImage}
             alt="Ansel Colvin"
             className={styles.photo}
+            fetchPriority="high"
           />
           <div className={styles.overlay} />
 
