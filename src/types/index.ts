@@ -114,9 +114,16 @@ export interface WorkData {
   projects: Project[]
 }
 
+export interface ResumeOption {
+  label: string
+  description: string
+  href: string
+}
+
 export interface ContactLink {
   label: string
   href: string
+  resumeModal?: boolean
 }
 
 export interface ContactData {

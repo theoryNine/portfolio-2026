@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import styles from './Contact.module.css'
 import { SectionLabel } from '../../ui/SectionLabel/SectionLabel'
 import { Button } from '../../ui/Button/Button'
+import { ResumeModal } from '../../ui/ResumeModal/ResumeModal'
 import { contact } from '../../../data/contact'
 
 export function Contact() {
+  const [resumeOpen, setResumeOpen] = useState(false)
+
   return (
     <section id="contact" className={styles.section}>
       <div className="container">
@@ -21,11 +25,17 @@ export function Contact() {
             <Button href={contact.primaryHref} variant="primary">
               {contact.primaryLabel}
             </Button>
-            {contact.links.map((link) => (
-              <Button key={link.label} href={link.href} variant="outline">
-                {link.label}
-              </Button>
-            ))}
+            {contact.links.map((link) =>
+              link.resumeModal ? (
+                <Button key={link.label} variant="outline" onClick={() => setResumeOpen(true)}>
+                  {link.label}
+                </Button>
+              ) : (
+                <Button key={link.label} href={link.href} variant="outline">
+                  {link.label}
+                </Button>
+              ),
+            )}
           </div>
         </div>
       </div>
@@ -38,6 +48,8 @@ export function Contact() {
           </div>
         </div>
       </footer>
+
+      {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
     </section>
   )
 }

@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import styles from './Hero.module.css'
 import { Button } from '../../ui/Button/Button'
 import { StatItem } from '../../ui/StatItem/StatItem'
+import { ResumeModal } from '../../ui/ResumeModal/ResumeModal'
 import { hero } from '../../../data/hero'
 
 export function Hero() {
+  const [resumeOpen, setResumeOpen] = useState(false)
+
   return (
     <section id="hero" className={styles.section}>
         <div className={styles.card}>
@@ -35,7 +39,7 @@ export function Hero() {
                   <Button href={hero.primaryCtaHref} variant="primary">
                     {hero.primaryCta}
                   </Button>
-                  <Button href={hero.secondaryCtaHref} variant="outline">
+                  <Button variant="outline" onClick={() => setResumeOpen(true)}>
                     {hero.secondaryCta}
                   </Button>
                 </div>
@@ -49,6 +53,8 @@ export function Hero() {
             <StatItem key={stat.label} value={stat.value} label={stat.label} accent={i === 0} />
           ))}
         </div>
+
+        {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
     </section>
   )
 }
