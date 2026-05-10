@@ -15,7 +15,7 @@ export const principles: PrinciplesData = {
       number: '02',
       title: 'Mentorship',
       description:
-        'Empowering engineers to reach their full potential — and to teach the next ones.',
+        'Empowering engineers to reach their full potential, and to teach the next ones.',
     },
     {
       number: '03',
