@@ -100,7 +100,7 @@ main > section {
   margin-inline: auto;
   border-left: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 @media (max-width: 640px) {
