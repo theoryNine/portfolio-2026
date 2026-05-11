@@ -13,6 +13,14 @@
   overflow: hidden;
   isolation: isolate;
   transition: border-color var(--duration-base) var(--ease-out);
+  /* button resets */
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
 }
 
 .shim {

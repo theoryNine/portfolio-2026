@@ -105,6 +105,7 @@ export interface Project {
   role?: string
   year?: string
   scale?: string
+  description?: string
 }
 
 export interface WorkData {

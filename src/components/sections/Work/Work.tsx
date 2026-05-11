@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import styles from './Work.module.css'
 import { SectionLabel } from '../../ui/SectionLabel/SectionLabel'
 import { ProjectCard } from '../../ui/ProjectCard/ProjectCard'
+import { ProjectModal } from '../../ui/ProjectModal/ProjectModal'
 import { work } from '../../../data/work'
+import type { Project } from '../../../types'
 
 export function Work() {
+  const [selected, setSelected] = useState<Project | null>(null)
+
   return (
     <section id="work" className={styles.section}>
       <div className="container">
@@ -18,12 +23,13 @@ export function Work() {
                   : styles.standard
             return (
               <div key={project.number} className={wrapClass}>
-                <ProjectCard {...project} />
+                <ProjectCard {...project} onSelect={() => setSelected(project)} />
               </div>
             )
           })}
         </div>
       </div>
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
     </section>
   )
 }

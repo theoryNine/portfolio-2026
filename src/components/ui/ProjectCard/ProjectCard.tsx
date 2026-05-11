@@ -1,10 +1,25 @@
 import styles from './ProjectCard.module.css'
 import type { Project } from '../../../types'
 
-export function ProjectCard({ number, company, title, tags, image, href, variant, role, year, scale }: Project) {
+interface ProjectCardProps extends Project {
+  onSelect: () => void
+}
+
+export function ProjectCard({
+  number,
+  company,
+  title,
+  tags,
+  image,
+  variant,
+  role,
+  year,
+  scale,
+  onSelect,
+}: ProjectCardProps) {
   if (variant === 'featured') {
     return (
-      <a href={href} className={`${styles.card} ${styles.cardFeatured}`}>
+      <button onClick={onSelect} className={`${styles.card} ${styles.cardFeatured}`}>
         <div className={styles.shim} />
         <img src={image} alt={company} className={styles.featuredImg} loading="lazy" />
         <div className={styles.cardBar}>
@@ -42,36 +57,44 @@ export function ProjectCard({ number, company, title, tags, image, href, variant
             </div>
           </div>
         </div>
-      </a>
+      </button>
     )
   }
 
   if (variant === 'standard') {
     return (
-      <a href={href} className={`${styles.card} ${styles.cardStandard}`}>
+      <button onClick={onSelect} className={`${styles.card} ${styles.cardStandard}`}>
         <div className={styles.shim} />
         <img src={image} alt={company} className={styles.cardImg} loading="lazy" />
         <div className={styles.cardBar}>
           <div className={styles.barTop}>
             <span className={styles.numberLabel}>Nº {number}</span>
-            {role && year && <span className={styles.roleYear}>{role.toUpperCase()} · {year}</span>}
+            {role && year && (
+              <span className={styles.roleYear}>
+                {role.toUpperCase()} · {year}
+              </span>
+            )}
           </div>
           <p className={styles.standardCompany}>{company}</p>
           <p className={styles.standardTitle}>{title}</p>
         </div>
-      </a>
+      </button>
     )
   }
 
   return (
-    <a href={href} className={`${styles.card} ${styles.cardSmall}`}>
+    <button onClick={onSelect} className={`${styles.card} ${styles.cardSmall}`}>
       <div className={styles.shim} />
       <img src={image} alt={company} className={styles.cardImg} />
       <div className={styles.cardBar}>
         <span className={styles.numberLabel}>Nº {number}</span>
         <p className={styles.smallCompany}>{company}</p>
-        {role && year && <span className={styles.roleYear}>{role.toUpperCase()} · {year}</span>}
+        {role && year && (
+          <span className={styles.roleYear}>
+            {role.toUpperCase()} · {year}
+          </span>
+        )}
       </div>
-    </a>
+    </button>
   )
 }
