@@ -12,7 +12,7 @@ export const about: AboutData = {
   details: [
     { label: 'Based', value: 'Kirkland, WA' },
     { label: 'Focus', value: 'Engineering leadership · program management' },
-    { label: 'Available', value: 'Senior Engineer · Engineering Manager', accent: true },
+    { label: 'Available', value: 'Senior Engineer · Engineering Manager · Technical Program Management', accent: true },
     { label: 'Email', value: 'anselcolvin@gmail.com' },
   ],
 }
