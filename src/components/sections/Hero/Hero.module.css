@@ -182,7 +182,7 @@
 
 @media (max-width: 640px) {
   .card {
-    min-height: calc(95svh - 4rem);
+    min-height: calc(var(--vh, 100svh) * 0.95 - 4rem);
     border-radius: 0;
   }
 
