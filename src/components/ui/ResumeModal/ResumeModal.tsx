@@ -51,7 +51,6 @@ export function ResumeModal({ onClose }: ResumeModalProps) {
             ×
           </button>
         </div>
-        <p className={styles.subtitle}>Select the version that fits your needs.</p>
         <ul className={styles.list}>
           {resumes.map((r) => (
             <li key={r.label}>

@@ -1,6 +1,10 @@
 @keyframes shimmer {
-  0%   { transform: translate(-30%, -30%) rotate(0deg); }
-  100% { transform: translate(-30%, -30%) rotate(360deg); }
+  0% {
+    transform: translate(-30%, -30%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-30%, -30%) rotate(360deg);
+  }
 }
 
 .card {
@@ -43,7 +47,7 @@
   font-size: var(--text-xs);
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .title {
@@ -60,5 +64,14 @@
   font-size: var(--text-sm);
   font-weight: 300;
   color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.example {
+  margin: var(--space-1) 0 0;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text);
   line-height: 1.6;
 }

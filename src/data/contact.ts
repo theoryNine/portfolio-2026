@@ -5,7 +5,7 @@ export const contact: ContactData = {
   sectionTitle: 'Contact',
   headline: "Let's build\nsomething good.",
   subtext:
-    'Open to senior engineer and engineering leadership roles, technical program management, and the occasional speaking slot. I read every message and usually back the same day.',
+    'Open to engineering leadership roles. I read every message and usually reply the same day.',
   primaryLabel: 'anselcolvin@gmail.com →',
   primaryHref: 'mailto:anselcolvin@gmail.com',
   links: [
@@ -14,5 +14,5 @@ export const contact: ContactData = {
   ],
   footerCopyright: '© 2026 Ansel Colvin',
   footerCredit: 'Designed & Built In-House',
-  footerLocation: 'Kirkland, WA',
+  footerLocation: 'Seattle, WA',
 }

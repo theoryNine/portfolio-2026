@@ -6,14 +6,11 @@ import bny from '../assets/sitegrabs/BNY_Desk.webp'
 import spectrum from '../assets/sitegrabs/spectrum_mobile_full.webp'
 import nyl from '../assets/sitegrabs/nyl_full.webp'
 import att from '../assets/sitegrabs/att_full.webp'
-import canon from '../assets/sitegrabs/canon_full.webp'
-import acu from '../assets/sitegrabs/acu_full.webp'
-import fresh from '../assets/sitegrabs/fresh_full.webp'
 
 export const work: WorkData = {
   sectionNumber: '05',
   sectionTitle: 'Selected work',
-  label: 'Programs / Next',
+  label: 'Selected programs',
   projects: [
     {
       number: '001',
@@ -93,45 +90,6 @@ export const work: WorkData = {
       year: '2018',
       description:
         'Developed the in-store digital experience platform for AT&T retail locations, including interactive kiosks and guided product discovery flows. The platform deployed across 2,000+ retail stores nationwide.',
-    },
-    {
-      number: '007',
-      company: 'Canon USA',
-      title: 'E-commerce product configurator & print-on-demand tooling.',
-      tags: ['Adobe Experience Manager'],
-      image: canon,
-      href: '#',
-      variant: 'small',
-      role: 'Front-End Engineer',
-      year: '2018',
-      description:
-        "Built an e-commerce product configurator allowing customers to customize and order professional camera equipment, integrated with Canon's print-on-demand fulfillment pipeline. Delivered a multi-step ordering workflow with real-time pricing and availability.",
-    },
-    {
-      number: '008',
-      company: 'ACU',
-      title: 'University web platform migration & CMS implementation.',
-      tags: ['Adobe Experience Manager'],
-      image: acu,
-      href: '#',
-      variant: 'small',
-      role: 'Front-End Engineer',
-      year: '2017',
-      description:
-        'Led the web platform migration for Abilene Christian University, transitioning a sprawling institutional site to a modern CMS with a content governance model. Delivered a responsive redesign and component library used by 30+ content editors across campus departments.',
-    },
-    {
-      number: '009',
-      company: 'Fresh Image Center',
-      title: 'Brand identity system & marketing site build.',
-      tags: ['WordPress', 'Custom Design'],
-      image: fresh,
-      href: '#',
-      variant: 'small',
-      role: 'Front-End Engineer',
-      year: '2017',
-      description:
-        'Designed and built the brand identity system and marketing site for Fresh Image Center, a beauty studio in Austin, Texas. Delivered a fully custom design with integrated online booking and a mobile-first layout.',
     },
   ],
 }
