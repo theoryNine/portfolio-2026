@@ -29,10 +29,10 @@ export const experience: ExperienceData = {
     },
     {
       company: 'Starbucks',
-      role: 'Senior Engineer, Tech Lead (Team of 5)',
+      role: 'Senior Engineer, Tech Lead (Team of 8)',
       period: '2022 – 2025',
       bullets: [
-        'Managed and mentored a team of 5 front-end engineers, with regular feedback, pairing sessions, and growth plans.',
+        'Managed and mentored a team of 8 front-end engineers, with regular feedback, pairing sessions, and growth plans.',
         'Interviewed, selected, and onboarded 4 contract engineers to scale team capacity while holding quality standards.',
         'Led the team through an enterprise CMS re-platforming for global marketing sites serving 30–40M monthly visits, with on-time launches and zero critical delays.',
         'Defined and rolled out responsible AI guidelines (prompt standards, data sanitizing, manual validation) and trained engineers across multiple teams.',

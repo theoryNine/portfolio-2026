@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import styles from './ProjectModal.module.css'
+import { useModalBehavior } from '../../../hooks/useModalBehavior'
 import type { Project } from '../../../types'
 
 interface ProjectModalProps {
@@ -11,6 +12,7 @@ interface ProjectModalProps {
 const FADE_MS = 150
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const [isClosing, setIsClosing] = useState(false)
 
@@ -19,23 +21,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     setTimeout(onClose, FADE_MS)
   }
 
-  useEffect(() => {
-    closeRef.current?.focus()
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    const prevOverflow = document.body.style.overflow
-    const prevPadding = document.body.style.paddingRight
-    document.body.style.overflow = 'hidden'
-    document.body.style.paddingRight = `${scrollbarWidth}px`
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleClose()
-    }
-    document.addEventListener('keydown', handleKey)
-    return () => {
-      document.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = prevOverflow
-      document.body.style.paddingRight = prevPadding
-    }
-  }, [])
+  useModalBehavior(panelRef, closeRef, handleClose)
 
   return createPortal(
     <div
@@ -45,14 +31,23 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       aria-modal="true"
       aria-label={`${project.company} project details`}
     >
-      <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
+      <div ref={panelRef} className={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div className={styles.imageWrap}>
-          <img src={project.image} alt={project.company} className={styles.image} />
+          <img
+            src={project.image}
+            alt={`${project.company} website screenshot`}
+            className={styles.image}
+          />
         </div>
         <div className={styles.body}>
           <div className={styles.header}>
             <span className={styles.number}>Nº {project.number}</span>
-            <button ref={closeRef} className={styles.close} onClick={handleClose} aria-label="Close">
+            <button
+              ref={closeRef}
+              className={styles.close}
+              onClick={handleClose}
+              aria-label="Close"
+            >
               ×
             </button>
           </div>
@@ -64,6 +59,13 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <span className={styles.metaKey}>Role</span>
                 <span className={styles.metaDot}>·</span>
                 {project.role}
+              </span>
+            )}
+            {project.team && (
+              <span className={styles.metaRow}>
+                <span className={styles.metaKey}>Team</span>
+                <span className={styles.metaDot}>·</span>
+                {project.team}
               </span>
             )}
             {project.year && (
@@ -92,6 +94,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
       </div>
     </div>,
-    document.body,
+    document.body
   )
 }

@@ -20,11 +20,12 @@ export const work: WorkData = {
       image: starbucks,
       href: '#',
       variant: 'featured',
-      role: 'Front-End Tech Lead',
-      year: '2024',
+      role: 'Senior Engineer, Tech Lead (Team of 8)',
+      year: '2022 – 2025',
       scale: '30–40M / mo',
+      team: '8 engineers',
       description:
-        "Led front-end architecture for Starbucks' global marketing platform migration from a legacy CMS to Adobe AEM, serving markets across North America, EMEA, and APAC. Established engineering standards, mentored a distributed team of 8 engineers, and delivered a component system that significantly reduced time-to-publish for regional marketing teams.",
+        "Led front-end architecture for Starbucks' global marketing platform migration from a legacy CMS to Adobe AEM, serving markets across North America, EMEA, and APAC. Established engineering standards, mentored a distributed team of 8 engineers, and delivered a component system that significantly reduced time-to-publish for regional marketing teams. Interviewed and onboarded 4 contract engineers and rolled out responsible AI guidelines across teams.",
     },
     {
       number: '002',

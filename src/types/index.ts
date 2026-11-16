@@ -102,6 +102,7 @@ export interface Project {
   role?: string
   year?: string
   scale?: string
+  team?: string
   description?: string
 }
 
