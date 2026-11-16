@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   min-height: calc(92svh - 4rem);
-  background: #111;
+  background: var(--color-bg-surface);
 }
 
 .photo {

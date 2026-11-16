@@ -2,6 +2,9 @@ import type { NavData } from '../types'
 
 export const nav: NavData = {
   logo: 'Ansel Colvin',
+  skipLink: 'Skip to main content',
+  menuOpenLabel: 'Open menu',
+  menuCloseLabel: 'Close menu',
   links: [
     { label: 'Work', href: '#work' },
     { label: 'About', href: '#about' },

@@ -10,9 +10,14 @@ export function Work() {
   const [selected, setSelected] = useState<Project | null>(null)
 
   return (
-    <section id="work" className={styles.section}>
+    <section id="work" aria-labelledby="work-title" className={styles.section}>
       <div className="container">
-        <SectionLabel number={work.sectionNumber} title={work.sectionTitle} right={work.label} />
+        <SectionLabel
+          headingId="work-title"
+          number={work.sectionNumber}
+          title={work.sectionTitle}
+          right={work.label}
+        />
         <div className={styles.grid}>
           {work.projects.map((project) => {
             const wrapClass =

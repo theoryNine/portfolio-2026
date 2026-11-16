@@ -5,6 +5,9 @@ export interface NavLink {
 
 export interface NavData {
   logo: string
+  skipLink: string
+  menuOpenLabel: string
+  menuCloseLabel: string
   links: NavLink[]
   cta: string
   ctaHref: string
@@ -23,7 +26,6 @@ export interface HeroData {
   primaryCta: string
   primaryCtaHref: string
   secondaryCta: string
-  secondaryCtaHref: string
   backgroundImage: string
   stats: HeroStat[]
 }
@@ -97,11 +99,11 @@ export interface Project {
   title: string
   tags: string[]
   image: string
-  href: string
   variant: ProjectVariant
   role?: string
   year?: string
   scale?: string
+  team?: string
   description?: string
 }
 

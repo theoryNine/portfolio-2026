@@ -1,17 +1,25 @@
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--color-scrim);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,8 +95,8 @@
 }
 
 .option:hover {
-  border-color: rgba(237, 232, 227, 0.4);
-  background: rgba(237, 232, 227, 0.04);
+  border-color: var(--color-border-bright);
+  background: var(--color-surface-hover);
 }
 
 .optionLabel {

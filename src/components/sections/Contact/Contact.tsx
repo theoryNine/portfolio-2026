@@ -9,17 +9,21 @@ export function Contact() {
   const [resumeOpen, setResumeOpen] = useState(false)
 
   return (
-    <section id="contact" className={styles.section}>
+    <section id="contact" aria-labelledby="contact-title" className={styles.section}>
       <div className="container">
-        <SectionLabel number={contact.sectionNumber} title={contact.sectionTitle} />
+        <SectionLabel
+          headingId="contact-title"
+          number={contact.sectionNumber}
+          title={contact.sectionTitle}
+        />
         <div className={styles.body}>
-          <h2 className={styles.headline}>
+          <p className={styles.headline}>
             {contact.headline.split('\n').map((line, i) => (
               <span key={i} className={styles.headlineLine}>
                 {line}
               </span>
             ))}
-          </h2>
+          </p>
           <p className={styles.subtext}>{contact.subtext}</p>
           <div className={styles.actions}>
             <Button href={contact.primaryHref} variant="primary">
@@ -34,7 +38,7 @@ export function Contact() {
                 <Button key={link.label} href={link.href} variant="outline">
                   {link.label}
                 </Button>
-              ),
+              )
             )}
           </div>
         </div>

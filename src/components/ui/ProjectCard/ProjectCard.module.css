@@ -1,8 +1,12 @@
 /* ─── Shared ─────────────────────────────────────────────── */
 
 @keyframes shimmer {
-  0%   { transform: translate(-30%, -30%) rotate(0deg); }
-  100% { transform: translate(-30%, -30%) rotate(360deg); }
+  0% {
+    transform: translate(-30%, -30%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-30%, -30%) rotate(360deg);
+  }
 }
 
 .card {
@@ -26,29 +30,28 @@
 .shim {
   position: absolute;
   inset: -50%;
-  background: conic-gradient(
-    from 0deg,
-    rgba(244, 236, 221, 0) 0%,
-    rgba(244, 236, 221, 0) 40%,
-    rgba(244, 236, 221, 0.45) 50%,
-    rgba(155, 42, 58, 0.35) 55%,
-    rgba(244, 236, 221, 0) 65%,
-    rgba(244, 236, 221, 0) 100%
-  );
+  background: var(--shimmer-gradient);
   mix-blend-mode: screen;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
-  animation: shimmer 6s linear infinite;
+  animation: shimmer 6s linear infinite paused;
   z-index: 1;
 }
 
-.card:hover .shim {
+.card:hover .shim,
+.card:focus-visible .shim {
   opacity: 0.9;
+  animation-play-state: running;
 }
 
-.card:hover {
-  border-color: rgba(237, 232, 227, 0.28);
+.card:hover,
+.card:focus-visible {
+  border-color: var(--color-border-strong);
+}
+
+.card:focus-visible {
+  outline-offset: -2px;
 }
 
 .numberLabel {
@@ -82,7 +85,8 @@
   transition: transform 0.7s var(--ease-out);
 }
 
-.cardFeatured:hover .featuredImg {
+.cardFeatured:hover .featuredImg,
+.cardFeatured:focus-visible .featuredImg {
   transform: scale(1.03);
 }
 
@@ -129,7 +133,7 @@
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 300;
-  color: rgba(237, 232, 227, 0.7);
+  color: var(--color-text-dim);
   max-width: 40ch;
 }
 
@@ -146,16 +150,16 @@
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .metaKey {
-  color: rgba(237, 232, 227, 0.45);
+  color: var(--color-text-muted);
 }
 
 .metaDot {
   margin-inline: 0.4em;
-  color: rgba(237, 232, 227, 0.3);
+  color: var(--color-border-strong);
 }
 
 /* ─── Standard ───────────────────────────────────────────── */
@@ -211,7 +215,8 @@
   transition: transform 0.7s var(--ease-out);
 }
 
-.card:hover .cardImg {
+.card:hover .cardImg,
+.card:focus-visible .cardImg {
   transform: scale(1.04);
 }
 

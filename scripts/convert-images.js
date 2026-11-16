@@ -23,7 +23,9 @@ for (const file of sitegrabFiles) {
   const inputStat = (await import('fs')).statSync(input)
   const outputStat = (await import('fs')).statSync(output)
   const saved = (((inputStat.size - outputStat.size) / inputStat.size) * 100).toFixed(0)
-  console.log(`${file} → ${outputName}  (${(inputStat.size / 1024).toFixed(0)}KB → ${(outputStat.size / 1024).toFixed(0)}KB, -${saved}%)`)
+  console.log(
+    `${file} → ${outputName}  (${(inputStat.size / 1024).toFixed(0)}KB → ${(outputStat.size / 1024).toFixed(0)}KB, -${saved}%)`
+  )
 }
 
 for (const file of ['ansel-light.jpg', 'darker.jpeg']) {
@@ -40,5 +42,7 @@ for (const file of ['ansel-light.jpg', 'darker.jpeg']) {
   const inputStat = (await import('fs')).statSync(input)
   const outputStat = (await import('fs')).statSync(output)
   const saved = (((inputStat.size - outputStat.size) / inputStat.size) * 100).toFixed(0)
-  console.log(`${file} → ${outputName}  (${(inputStat.size / 1024).toFixed(0)}KB → ${(outputStat.size / 1024).toFixed(0)}KB, -${saved}%)`)
+  console.log(
+    `${file} → ${outputName}  (${(inputStat.size / 1024).toFixed(0)}KB → ${(outputStat.size / 1024).toFixed(0)}KB, -${saved}%)`
+  )
 }

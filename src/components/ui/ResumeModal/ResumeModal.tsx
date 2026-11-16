@@ -1,40 +1,21 @@
-import { useEffect, useRef, useState } from 'react'
+import { useId, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import styles from './ResumeModal.module.css'
+import { useModalBehavior } from '../../../hooks/useModalBehavior'
+import { useModalClose } from '../../../hooks/useModalClose'
 import { resumes } from '../../../data/resumes'
 
 interface ResumeModalProps {
   onClose: () => void
 }
 
-const FADE_MS = 150
-
 export function ResumeModal({ onClose }: ResumeModalProps) {
+  const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
-  const [isClosing, setIsClosing] = useState(false)
+  const titleId = useId()
+  const { isClosing, handleClose } = useModalClose(onClose)
 
-  const handleClose = () => {
-    setIsClosing(true)
-    setTimeout(onClose, FADE_MS)
-  }
-
-  useEffect(() => {
-    closeRef.current?.focus()
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    const prevOverflow = document.body.style.overflow
-    const prevPadding = document.body.style.paddingRight
-    document.body.style.overflow = 'hidden'
-    document.body.style.paddingRight = `${scrollbarWidth}px`
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleClose()
-    }
-    document.addEventListener('keydown', handleKey)
-    return () => {
-      document.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = prevOverflow
-      document.body.style.paddingRight = prevPadding
-    }
-  }, [])
+  useModalBehavior(panelRef, closeRef, handleClose)
 
   return createPortal(
     <div
@@ -42,11 +23,13 @@ export function ResumeModal({ onClose }: ResumeModalProps) {
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Select a résumé to download"
+      aria-labelledby={titleId}
     >
-      <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
+      <div ref={panelRef} className={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Download Résumé</h2>
+          <h2 id={titleId} className={styles.title}>
+            Download Résumé
+          </h2>
           <button ref={closeRef} className={styles.close} onClick={handleClose} aria-label="Close">
             ×
           </button>
@@ -57,13 +40,15 @@ export function ResumeModal({ onClose }: ResumeModalProps) {
               <a href={r.href} download className={styles.option} onClick={handleClose}>
                 <span className={styles.optionLabel}>{r.label}</span>
                 <span className={styles.optionDesc}>{r.description}</span>
-                <span className={styles.optionArrow} aria-hidden="true">↓</span>
+                <span className={styles.optionArrow} aria-hidden="true">
+                  ↓
+                </span>
               </a>
             </li>
           ))}
         </ul>
       </div>
     </div>,
-    document.body,
+    document.body
   )
 }

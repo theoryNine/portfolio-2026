@@ -19,7 +19,7 @@ export const principles: PrinciplesData = {
       description:
         'Empowering engineers to reach their full potential, and to teach the next ones.',
       example:
-        'Growth plans and pairing for a team of 5; at Ansira, a team grown from 2 to 8 with onboarding time down 30%.',
+        'Growth plans and pairing for a team of 8; at Ansira, a team grown from 2 to 8 with onboarding time down 30%.',
     },
     {
       number: '03',
