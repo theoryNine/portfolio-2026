@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# Portfolio 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site for Ansel Colvin, built with React 19, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requires Node 22+ (see `.nvmrc`).
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev          # http://localhost:5173
+npm run build        # type-check + production build into dist/
+npm run preview      # serve the production build locally
+npm run lint         # ESLint
+npm run format       # Prettier
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## How it's organised
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/data/` holds all site content as typed exports, one file per section. To change copy, edit
+  the data file, not the component.
+- `src/components/sections/` are the page sections; `src/components/ui/` are reusable pieces.
+- `src/index.css` holds the global design tokens (colors, type scale, spacing). Components use
+  tokens from there rather than hardcoded values.
+- `src/hooks/` holds shared hooks (modal focus trap, scroll lock, and close animation).
+- `scripts/convert-images.js` converts source PNG/JPG screenshots to WebP (`node scripts/convert-images.js`).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+See `CLAUDE.md` for the full conventions.
+
+## Production notes
+
+- Fonts are self-hosted via `@fontsource`; there are no third-party requests at runtime.
+- The production build injects a strict Content Security Policy `<meta>` tag (see
+  `vite.config.ts`). If you add an external script, style, image, or font host, allow it there.
+- `frame-ancestors` cannot be set from a `<meta>` tag. Set it as an HTTP header at your host
+  (for example `Content-Security-Policy: frame-ancestors 'none'`).
