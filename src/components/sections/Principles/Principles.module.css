@@ -12,11 +12,11 @@
 /* Remove each card's own border — the 1px grid gap acts as the divider */
 .grid > * {
   border: none;
-  background: #000;
+  background: var(--color-bg);
 }
 
 .grid > *:first-child {
-  background: rgba(82, 5, 13, 0.242); /* hardcoded so --color-accent override below doesn't affect it */
+  background: var(--color-accent-wash);
 }
 
 @media (max-width: 1024px) {

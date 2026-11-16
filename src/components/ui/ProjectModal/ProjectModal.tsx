@@ -1,7 +1,8 @@
-import { useRef, useState } from 'react'
+import { useId, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import styles from './ProjectModal.module.css'
 import { useModalBehavior } from '../../../hooks/useModalBehavior'
+import { useModalClose } from '../../../hooks/useModalClose'
 import type { Project } from '../../../types'
 
 interface ProjectModalProps {
@@ -9,17 +10,11 @@ interface ProjectModalProps {
   onClose: () => void
 }
 
-const FADE_MS = 150
-
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
-  const [isClosing, setIsClosing] = useState(false)
-
-  const handleClose = () => {
-    setIsClosing(true)
-    setTimeout(onClose, FADE_MS)
-  }
+  const titleId = useId()
+  const { isClosing, handleClose } = useModalClose(onClose)
 
   useModalBehavior(panelRef, closeRef, handleClose)
 
@@ -29,7 +24,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
-      aria-label={`${project.company} project details`}
+      aria-labelledby={titleId}
     >
       <div ref={panelRef} className={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div className={styles.imageWrap}>
@@ -51,41 +46,53 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               ×
             </button>
           </div>
-          <p className={styles.company}>{project.company}</p>
+          <p id={titleId} className={styles.company}>
+            {project.company}
+          </p>
           <p className={styles.title}>{project.title}</p>
           <div className={styles.meta}>
             {project.role && (
               <span className={styles.metaRow}>
                 <span className={styles.metaKey}>Role</span>
-                <span className={styles.metaDot}>·</span>
+                <span className={styles.metaDot} aria-hidden="true">
+                  ·
+                </span>
                 {project.role}
               </span>
             )}
             {project.team && (
               <span className={styles.metaRow}>
                 <span className={styles.metaKey}>Team</span>
-                <span className={styles.metaDot}>·</span>
+                <span className={styles.metaDot} aria-hidden="true">
+                  ·
+                </span>
                 {project.team}
               </span>
             )}
             {project.year && (
               <span className={styles.metaRow}>
                 <span className={styles.metaKey}>Year</span>
-                <span className={styles.metaDot}>·</span>
+                <span className={styles.metaDot} aria-hidden="true">
+                  ·
+                </span>
                 {project.year}
               </span>
             )}
             {project.scale && (
               <span className={styles.metaRow}>
                 <span className={styles.metaKey}>Scale</span>
-                <span className={styles.metaDot}>·</span>
+                <span className={styles.metaDot} aria-hidden="true">
+                  ·
+                </span>
                 {project.scale}
               </span>
             )}
             {project.tags.length > 0 && (
               <span className={styles.metaRow}>
                 <span className={styles.metaKey}>Stack</span>
-                <span className={styles.metaDot}>·</span>
+                <span className={styles.metaDot} aria-hidden="true">
+                  ·
+                </span>
                 {project.tags.join(' · ')}
               </span>
             )}

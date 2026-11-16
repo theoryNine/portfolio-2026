@@ -1,24 +1,19 @@
-import { useRef, useState } from 'react'
+import { useId, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import styles from './ResumeModal.module.css'
 import { useModalBehavior } from '../../../hooks/useModalBehavior'
+import { useModalClose } from '../../../hooks/useModalClose'
 import { resumes } from '../../../data/resumes'
 
 interface ResumeModalProps {
   onClose: () => void
 }
 
-const FADE_MS = 150
-
 export function ResumeModal({ onClose }: ResumeModalProps) {
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
-  const [isClosing, setIsClosing] = useState(false)
-
-  const handleClose = () => {
-    setIsClosing(true)
-    setTimeout(onClose, FADE_MS)
-  }
+  const titleId = useId()
+  const { isClosing, handleClose } = useModalClose(onClose)
 
   useModalBehavior(panelRef, closeRef, handleClose)
 
@@ -28,11 +23,13 @@ export function ResumeModal({ onClose }: ResumeModalProps) {
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Select a résumé to download"
+      aria-labelledby={titleId}
     >
       <div ref={panelRef} className={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Download Résumé</h2>
+          <h2 id={titleId} className={styles.title}>
+            Download Résumé
+          </h2>
           <button ref={closeRef} className={styles.close} onClick={handleClose} aria-label="Close">
             ×
           </button>

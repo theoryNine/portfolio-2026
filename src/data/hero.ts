@@ -10,7 +10,6 @@ export const hero: HeroData = {
   primaryCta: 'See selected work →',
   primaryCtaHref: '#work',
   secondaryCta: 'Download Résumé',
-  secondaryCtaHref: '/resume.pdf',
   backgroundImage: heroImage,
   stats: [
     { value: '12+', label: 'Years experience' },

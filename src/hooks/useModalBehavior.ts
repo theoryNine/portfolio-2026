@@ -21,6 +21,9 @@ export function useModalBehavior(
     const prevPadding = document.body.style.paddingRight
     document.body.style.overflow = 'hidden'
     document.body.style.paddingRight = `${scrollbarWidth}px`
+    // Keep assistive tech and Tab inside the dialog; modals are portaled outside #root
+    const appRoot = document.getElementById('root')
+    appRoot?.setAttribute('inert', '')
 
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') return closeRef.current()
@@ -46,6 +49,7 @@ export function useModalBehavior(
       document.removeEventListener('keydown', handleKey)
       document.body.style.overflow = prevOverflow
       document.body.style.paddingRight = prevPadding
+      appRoot?.removeAttribute('inert')
       opener?.focus()
     }
   }, [panelRef, initialFocusRef])

@@ -19,9 +19,14 @@ export function ProjectCard({
 }: ProjectCardProps) {
   if (variant === 'featured') {
     return (
-      <button onClick={onSelect} className={`${styles.card} ${styles.cardFeatured}`}>
+      <button
+        type="button"
+        aria-haspopup="dialog"
+        onClick={onSelect}
+        className={`${styles.card} ${styles.cardFeatured}`}
+      >
         <div className={styles.shim} />
-        <img src={image} alt={company} className={styles.featuredImg} loading="lazy" />
+        <img src={image} alt="" className={styles.featuredImg} loading="lazy" decoding="async" />
         <div className={styles.cardBar}>
           <div className={styles.barTop}>
             <span className={styles.featuredLabel}>Featured · Nº {number}</span>
@@ -36,21 +41,27 @@ export function ProjectCard({
               {role && (
                 <span className={styles.metaRow}>
                   <span className={styles.metaKey}>Role</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">
+                    ·
+                  </span>
                   {role}
                 </span>
               )}
               {tags.length > 0 && (
                 <span className={styles.metaRow}>
                   <span className={styles.metaKey}>Stack</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">
+                    ·
+                  </span>
                   {tags.join(' · ')}
                 </span>
               )}
               {scale && (
                 <span className={styles.metaRow}>
                   <span className={styles.metaKey}>Scale</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">
+                    ·
+                  </span>
                   {scale}
                 </span>
               )}
@@ -63,9 +74,14 @@ export function ProjectCard({
 
   if (variant === 'standard') {
     return (
-      <button onClick={onSelect} className={`${styles.card} ${styles.cardStandard}`}>
+      <button
+        type="button"
+        aria-haspopup="dialog"
+        onClick={onSelect}
+        className={`${styles.card} ${styles.cardStandard}`}
+      >
         <div className={styles.shim} />
-        <img src={image} alt={company} className={styles.cardImg} loading="lazy" />
+        <img src={image} alt="" className={styles.cardImg} loading="lazy" decoding="async" />
         <div className={styles.cardBar}>
           <div className={styles.barTop}>
             <span className={styles.numberLabel}>Nº {number}</span>
@@ -83,9 +99,14 @@ export function ProjectCard({
   }
 
   return (
-    <button onClick={onSelect} className={`${styles.card} ${styles.cardSmall}`}>
+    <button
+      type="button"
+      aria-haspopup="dialog"
+      onClick={onSelect}
+      className={`${styles.card} ${styles.cardSmall}`}
+    >
       <div className={styles.shim} />
-      <img src={image} alt={company} className={styles.cardImg} />
+      <img src={image} alt="" className={styles.cardImg} loading="lazy" decoding="async" />
       <div className={styles.cardBar}>
         <span className={styles.numberLabel}>Nº {number}</span>
         <p className={styles.smallCompany}>{company}</p>

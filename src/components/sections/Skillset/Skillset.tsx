@@ -5,9 +5,10 @@ import { skillset } from '../../../data/skillset'
 
 export function Skillset() {
   return (
-    <section id="skillset" className={styles.section}>
+    <section id="skillset" aria-labelledby="skillset-title" className={styles.section}>
       <div className="container">
         <SectionLabel
+          headingId="skillset-title"
           number={skillset.sectionNumber}
           title={skillset.sectionTitle}
           right={skillset.label}

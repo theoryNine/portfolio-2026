@@ -53,6 +53,10 @@
   color: var(--color-text);
 }
 
+.headlineLine {
+  display: block;
+}
+
 .headline em {
   font-style: italic;
 }
@@ -62,7 +66,7 @@
 }
 
 .light {
-  color: #e8d8b8;
+  color: var(--color-light-accent);
 }
 
 /* Bio */
@@ -140,6 +144,6 @@
   }
 
   .photo {
-    object-position: center 30%
+    object-position: center 30%;
   }
 }

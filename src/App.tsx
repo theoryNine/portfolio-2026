@@ -6,12 +6,16 @@ import { Experience } from './components/sections/Experience/Experience'
 import { Skillset } from './components/sections/Skillset/Skillset'
 import { Work } from './components/sections/Work/Work'
 import { Contact } from './components/sections/Contact/Contact'
+import { nav } from './data/nav'
 
 function App() {
   return (
     <div className="siteFrame">
+      <a href="#main" className="skipLink">
+        {nav.skipLink}
+      </a>
       <NavBar />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
         <About />
         <Principles />

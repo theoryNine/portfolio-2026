@@ -5,9 +5,10 @@ import { principles } from '../../../data/principles'
 
 export function Principles() {
   return (
-    <section id="principles" className={styles.section}>
+    <section id="principles" aria-labelledby="principles-title" className={styles.section}>
       <div className="container">
         <SectionLabel
+          headingId="principles-title"
           number={principles.sectionNumber}
           title={principles.sectionTitle}
           right={principles.label}

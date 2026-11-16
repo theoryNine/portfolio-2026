@@ -4,9 +4,10 @@ import { experience } from '../../../data/experience'
 
 export function Experience() {
   return (
-    <section id="experience" className={styles.section}>
+    <section id="experience" aria-labelledby="experience-title" className={styles.section}>
       <div className="container">
         <SectionLabel
+          headingId="experience-title"
           number={experience.sectionNumber}
           title={experience.sectionTitle}
           right={experience.label}
