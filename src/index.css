@@ -7,6 +7,7 @@
   --color-text-muted: #9a9490;
   --color-accent: #cb132c;
   --color-accent-hover: #a82020;
+  --color-accent-text: #ee4a5f; /* small accent text, 5.8:1 on black */
   --color-border: rgba(237, 232, 227, 0.12);
 
   /* Typography */

@@ -16,7 +16,6 @@ export interface HeroStat {
 }
 
 export interface HeroData {
-  availability: string
   roleLabel: string
   nameFirst: string
   nameLast: string
@@ -50,6 +49,7 @@ export interface Principle {
   number: string
   title: string
   description: string
+  example?: string
 }
 
 export interface PrinciplesData {
@@ -73,11 +73,8 @@ export interface ExperienceData {
   entries: ExperienceEntry[]
 }
 
-export type SkillLevel = 1 | 2 | 3 | 4 | 5
-
 export interface Skill {
   name: string
-  level: SkillLevel
 }
 
 export interface SkillCategory {

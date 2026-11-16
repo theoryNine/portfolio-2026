@@ -18,7 +18,7 @@ export function Skillset() {
               <h3 className={styles.categoryTitle}>{category.title}</h3>
               <div className={styles.skills}>
                 {category.skills.map((skill) => (
-                  <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+                  <SkillBar key={skill.name} name={skill.name} />
                 ))}
               </div>
             </div>
